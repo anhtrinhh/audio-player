@@ -1,0 +1,162 @@
+@mixin iconStyle($width, $height, $bgPositionX, $bgPositionY) {
+  width: $width;
+  height: $height;
+  background-position: $bgPositionX $bgPositionY;
+}
+.ap-dpnone {
+  display: none !important;
+}
+.ap-icon {
+  display: inline-block;
+  vertical-align: middle;
+  background: {
+    image: url(../icons/icon.png);
+    repeat: no-repeat;
+  }
+  &-prev {
+    @include iconStyle(1.3rem, 1.3rem, -82px, 0)
+  }
+  &-next {
+    @include iconStyle(1.3rem, 1.3rem, -60px, 0)
+  }
+  &-play {
+    @include iconStyle(1.75rem, 1.74rem, 0, 0)
+  }
+  &-pause {
+    @include iconStyle(1.75rem, 1.75rem, -30px, 0)
+  }
+  &-random {
+    @include iconStyle(1.4rem, 1.2rem, 0, -28px)
+  }
+  &-repeat-one {
+    @include iconStyle(1.5rem, 1.25rem, -25px, -28px)
+  }
+  &-audio {
+    @include iconStyle(1.7rem, 1.5rem, -50px, -28px)
+  }
+  &-no-audio {
+    @include iconStyle(1.6rem, 1.5rem, -78px, -28px)
+  }
+  &-micro {
+    @include iconStyle(1.25rem, 1.55rem, -106px, -28px)
+  }
+  &-button {
+    padding: 0.35rem;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+.audio-player {
+  background: rgb(24, 0, 34);
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .lyric {
+    display: none;
+  }
+  .main-screen {
+    flex-grow: 1;
+    &__canvas {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__progress-bar-container {
+      width: 96%;
+      padding: .2rem 0;
+      cursor: pointer;
+      &:hover .control__progress-bar {
+        height: .3rem;
+      }
+      &:hover .control__progress-point {
+        height: .55rem;
+        width: .55rem;
+      }
+    }
+    &__progress-bar {
+      height: .18rem;
+      background: rgb(150, 150, 150);
+      flex-grow: 1;
+      display: flex;
+    }
+    &__progressed {
+      width: 65%;
+      height: 100%;
+      background: rgb(221, 0, 173);
+    }
+    &__progress-point {
+      height: .45rem;
+      width: .45rem;
+      background: rgb(221, 0, 173);
+      margin-top: -0.125rem;
+      border-radius: 50%;
+    }
+    &__buttons {
+      width: 96%;
+      display: flex;
+    }
+    &__volume-control {
+      flex-grow: 1;
+      text-align: right;
+      position: relative;
+      .control__control-volume {
+        position: absolute;
+        width:30px;
+        height: 80px;
+        background: yellow;
+        top: -80px;
+        right: .35rem;
+      }
+    }
+  }
+}
+.player {
+  position: relative;
+  background: #000;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  & .control {
+    display: none;
+  }
+  #{&}-control {
+    position: absolute;
+    bottom: 0.4rem;
+    left: 2%;
+    width: 96%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "progress-bar"
+      "button-control";
+    &__progress-bar {
+      cursor: pointer;
+      height: 0.65rem;
+      padding: 0.15rem 0;
+      grid-area: progress-bar;
+      & .progress-bar {
+        width: 100%;
+        height: 0.25rem;
+        background: rgb(160, 160, 160);
+        & .progressed {
+          width: 0;
+          height: 100%;
+          background: rgb(240, 240, 240);
+        }
+      }
+    }
+    &__buttons {
+      grid-area: button-control;
+      text-align: center;
+    }
+  }
+}

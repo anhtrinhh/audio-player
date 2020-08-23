@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <link rel="stylesheet" href="../dist/css/style.min.css">
+    <style>
+        #test {
+            width: 600px;
+            height: 450px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="test">
+        <div id="test-lib">
+
+        </div>
+    </div>
+    <script src="../dist/js/audio-player.min.js"></script>
+    <script>
+        new $.AudioPlayer("", {
+            selector: "#test-lib",
+            autoHideControl: false
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "audio-player",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "start": "webpack --config webpack.config.js"
+  },
+  "author": "Anh Trinh",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
